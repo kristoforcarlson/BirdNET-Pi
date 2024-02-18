@@ -43,7 +43,7 @@ now = datetime.now()
 df_plt_today = df_plt[df_plt['Date'] == now.strftime("%Y-%m-%d")]
 
 # Set number of species to report
-readings = 10
+readings = 30
 
 plt_top10_today = (df_plt_today['Com_Name'].value_counts()[:readings])
 df_plt_top10_today = df_plt_today[df_plt_today.Com_Name.isin(plt_top10_today.index)]
@@ -55,8 +55,8 @@ if df_plt_top10_today.empty:
 pal = "Greens"
 
 # Set up plot axes and titles
-f, axs = plt.subplots(1, 2, figsize=(10, 4), gridspec_kw=dict(width_ratios=[3, 6]), facecolor='#77C487')
-plt.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=0, hspace=0)
+f, axs = plt.subplots(1, 2, figsize=(11, 4), gridspec_kw=dict(width_ratios=[3, 6]), facecolor='#77C487')
+plt.subplots_adjust(left=0.15, bottom=None, right=None, top=None, wspace=0, hspace=0)
 
 # generate y-axis order for all figures based on frequency
 freq_order = pd.value_counts(df_plt_top10_today['Com_Name']).iloc[:readings].index
@@ -76,7 +76,7 @@ plot = sns.countplot(y='Com_Name', data=df_plt_top10_today, palette=colors, orde
 
 # Try plot grid lines between bars - problem at the moment plots grid lines on bars - want between bars
 z = plot.get_ymajorticklabels()
-plot.set_yticklabels(['\n'.join(textwrap.wrap(ticklabel.get_text(), 15)) for ticklabel in plot.get_yticklabels()], fontsize=10)
+plot.set_yticklabels(['\n'.join(textwrap.wrap(ticklabel.get_text(), 22)) for ticklabel in plot.get_yticklabels()], fontsize=9)
 plot.set(ylabel=None)
 plot.set(xlabel="Detections")
 
@@ -128,7 +128,7 @@ plot.set(ylabel=None)
 plot.set(xlabel="Hour of Day")
 # Set combined plot layout and titles
 f.subplots_adjust(top=0.9)
-plt.suptitle("Top 10 Last Updated: " + str(now.strftime("%Y-%m-%d %H:%M")))
+plt.suptitle("Daily Summary Last Updated: " + str(now.strftime("%Y-%m-%d %H:%M")))
 
 # Save combined plot
 userDir = os.path.expanduser('~')

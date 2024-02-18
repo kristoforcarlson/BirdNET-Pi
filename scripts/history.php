@@ -161,10 +161,11 @@ if (file_exists('./Charts/'.$chart)) {
   echo "<p>No Charts for $theDate</p>";
 }
 echo "<hr>";
-if (file_exists('./Charts/'.$chart2)) {
-  echo "<img src=\"/Charts/$chart2?nocache=$time\">";
-} else {
-  echo "<p>No Charts For $theDate</p>";
-}?>
+//if (file_exists('./Charts/'.$chart2)) {
+//  echo "<img src=\"/Charts/$chart2?nocache=$time\">";
+//} else {
+//  echo "<p>No Charts For $theDate</p>";
+//}
+?>
 </div>
 </html>
