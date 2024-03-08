@@ -55,7 +55,7 @@ if df_plt_top10_today.empty:
 pal = "Greens"
 
 # Set up plot axes and titles
-f, axs = plt.subplots(1, 2, figsize=(11, 4), gridspec_kw=dict(width_ratios=[3, 6]), facecolor='#77C487')
+f, axs = plt.subplots(1, 2, figsize=(11, 6), gridspec_kw=dict(width_ratios=[3, 6]), facecolor='#77C487')
 plt.subplots_adjust(left=0.15, bottom=None, right=None, top=None, wspace=0, hspace=0)
 
 # generate y-axis order for all figures based on frequency
@@ -76,7 +76,7 @@ plot = sns.countplot(y='Com_Name', data=df_plt_top10_today, palette=colors, orde
 
 # Try plot grid lines between bars - problem at the moment plots grid lines on bars - want between bars
 z = plot.get_ymajorticklabels()
-plot.set_yticklabels(['\n'.join(textwrap.wrap(ticklabel.get_text(), 22)) for ticklabel in plot.get_yticklabels()], fontsize=9)
+plot.set_yticklabels(['\n'.join(textwrap.wrap(ticklabel.get_text(), 23)) for ticklabel in plot.get_yticklabels()], fontsize=9)
 plot.set(ylabel=None)
 plot.set(xlabel="Detections")
 
